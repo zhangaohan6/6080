@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add task3/index.html)",
+      "Bash(git commit -m \"Add Task 3 HTML Free and Basic pricing cards\")",
+      "Bash(git commit -m \"Add Task 3 HTML Business and Enterprise pricing cards\")",
+      "Bash(git add task3/style.css)",
+      "Bash(git commit -m \"Add Task 3 CSS base styles for navbar and hero section\")",
+      "Bash(git commit -m \"Add Task 3 CSS for pricing cards layout and toggle\")"
+    ]
+  }
+}
