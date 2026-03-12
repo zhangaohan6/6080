@@ -1,30 +1,40 @@
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Dashboard from './pages/Dashboard'
+import Game1 from './pages/Game1'
+import Game2 from './pages/Game2'
 import './App.css'
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <nav className="navbar">
-        <img src="https://picsum.photos/50" className="logo" />
-        <div className="nav-links">
-          <a href="/"><span className="full-text">Home</span><span className="short-text">H</span></a>
-          <a href="/game1"><span className="full-text">Game1</span><span className="short-text">G1</span></a>
-          <a href="/game2"><span className="full-text">Game2</span><span className="short-text">G2</span></a>
-          <a href="/game3"><span className="full-text">Game3</span><span className="short-text">G3</span></a>
+        <img src="https://picsum.photos/50" className="log" />
+        <div className="nav-link">
+          <Link to="/">Home</Link>
+          <Link to="/game1">Game1</Link>
+          <Link to="/game2">Game2</Link>
         </div>
       </nav>
 
-      <nav className='navbar'>
-        <img src="" alt="" />
-        <div>
-          <img src="" alt=""><span></span></img>
-          <img src="" alt=""><span></span></img>
-        </div>
-      </nav>
       <div className="main-body">
-        <p>这里是页面内容</p>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/game1" element={<Game1 />} />
+          <Route path="/game2" element={<Game2 />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 
 export default App
+
+//src/
+//├── App.jsx        ← 总控制（路由+导航）
+//├── App.css        ← 全局样式
+//├── main.jsx       ← 启动文件（不用动）
+//└── pages/         ← 页面文件夹
+    //├── Dashboard.jsx
+    //├── Game1.jsx
+    //├── Game2.jsx
+    //└── Game3.jsx

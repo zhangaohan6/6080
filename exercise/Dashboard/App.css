@@ -1,0 +1,63 @@
+/* ── 全局清零 ── 必须有 ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── 导航栏 ── 考试改：height/background-color/top ── */
+.navbar {
+  position: fixed;
+  top: 0;                     /* ← 改bottom:0 = 底部导航 */
+  left: 0;
+  width: 100%;
+  height: 80px;               /* ← 改高度 */
+  background-color: #eeeeee;  /* ← 改颜色 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Logo ── */
+.logo {
+  width: 50px;
+  height: 50px;
+  margin: 15px;
+}
+
+/* ── 导航链接 ── */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+/* 默认隐藏短文字 */
+.nav-links .short-text {
+  display: none;
+}
+
+/* ── 页面内容区域 ── margin-top = navbar高度 ── */
+.main-body {
+  margin-top: 80px;           /* ← 和navbar高度保持一致 */
+  padding: 20px;
+}
+
+/* ── 响应式断点1 ── 考试改数值 ── */
+@media (max-width: 1400px) {  /* ← 改断点数值 */
+  .nav-links .full-text  { display: none; }
+  .nav-links .short-text { display: inline; }
+}
+
+/* ── 响应式断点2 ── 考试改数值 ── */
+@media (max-width: 800px) {   /* ← 改断点数值 */
+  .nav-links .full-text  { display: none; }
+  .nav-links .short-text { display: inline; }
+  .logo    { display: none; }
+  .navbar  { height: 50px; }
+}
