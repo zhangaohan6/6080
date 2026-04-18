@@ -1,11 +1,17 @@
+// ======================================
+// 数学游戏 - 输入框版（21年格式）
+// 显示：数字 运算符 数字 = [输入框]
+// 用户打字输入答案
+// ======================================
+
 import { useState, useEffect } from 'react'
 
-// ✏️ 改1：运算符种类（考试按题目要求）
+// ✏️ 改1：运算符种类
 const OPERATORS = ['+', '-', '*', '/']
 
-// ✏️ 改2：数字范围（考试按题目要求）
+// ✏️ 改2：数字范围
 function randomInt() {
-  return Math.floor(Math.random() * 30) + 1
+  return Math.floor(Math.random() * 50) + 1
 }
 
 function calc(num1, op, num2) {
@@ -15,8 +21,8 @@ function calc(num1, op, num2) {
   if (op === '/') return num1 / num2
 }
 
-// ✏️ 改3：几关才算赢（考试按题目要求，这一个数字改了全部自动更新）
-const MAX_WINS = 2
+// ✏️ 改3：几关才算赢
+const MAX_WINS = 5
 
 function Game2() {
   const [num1, setNum1]     = useState(1)
@@ -44,8 +50,8 @@ function Game2() {
       const newWins = wins + 1
       setWins(newWins)
       if (newWins >= MAX_WINS) {
-        // ✏️ 改4：胜利提示文字（考试按题目要求）
-        alert(`You Win!`)
+        // ✏️ 改4：胜利文字
+        alert('You Win!')
         setWins(0)
       } else {
         alert(`Correct! ${newWins}/${MAX_WINS}`)
@@ -58,7 +64,7 @@ function Game2() {
 
   const boxStyle = {
     width: 100, height: 100,
-    // ✏️ 改5：方块颜色（考试按题目要求）
+    // ✏️ 改5：方块颜色
     background: 'linear-gradient(to right, #abcabc, #cbacbd)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     color: '#333', fontSize: '1.5em',
@@ -66,9 +72,8 @@ function Game2() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', gap: 20 }}>
-      <h1>数学游戏</h1>
-      <p>进度：{wins} / {MAX_WINS}</p>
-
+      <h1>Math Game</h1>
+      <p>Progress: {wins} / {MAX_WINS}</p>
       <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
         <div style={boxStyle}>{num1}</div>
         <div style={boxStyle}>{opDisplay}</div>
@@ -83,10 +88,7 @@ function Game2() {
           />
         </div>
       </div>
-
-      <button onClick={newQuestion} style={{ padding: '8px 32px', cursor: 'pointer' }}>
-        Reset
-      </button>
+      <button onClick={newQuestion} style={{ padding: '8px 32px', cursor: 'pointer' }}>Reset</button>
     </div>
   )
 }

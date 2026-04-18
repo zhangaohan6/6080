@@ -1,0 +1,18 @@
+/* 响应式导航：大屏显示全称，小屏显示缩写 */
+
+/* 默认：显示全称，隐藏缩写 */
+.nav-short { display: none; }
+.nav-full  { display: inline; }
+
+/* ≤ 800px：显示缩写，隐藏全称 */
+@media (max-width: 800px) {
+  .nav-full  { display: none; }
+  .nav-short { display: inline; }
+}
+
+/* 如果题目有 1400px 断点，加这段：
+@media (max-width: 1400px) {
+  .nav-full  { display: none; }
+  .nav-short { display: inline; }
+}
+*/
